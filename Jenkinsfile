@@ -43,6 +43,7 @@ pipeline{
             }
             post{
                 success{
+                    archiveArtifacts 'target/*.jar'
                     echo "========Maven Packaging stage executed successfully========"
 
                 }
