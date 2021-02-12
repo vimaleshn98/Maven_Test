@@ -20,20 +20,6 @@ pipeline{
                 }
             }
         }
-          stage("Test"){
-            steps{
-                echo "Maven compiling"
-                sh 'mvn test'
-            }
-            post{
-                success{
-                    echo "========Maven Test stage executed successfully========"
-                }
-                failure{
-                    echo "========Maven Test stage execution failed========"
-                }
-            }
-        }
         stage("Test"){
             steps{
                 echo "Maven compiling"
