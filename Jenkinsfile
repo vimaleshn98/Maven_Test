@@ -40,11 +40,11 @@ pipeline{
             }
         }
          stage("Packaging"){
-             when{
-                 experssion{
-                     env.GIT_BRANCH == 'master'|| CODE_CHANGES == true 
-                 }
-             }
+            //  when{
+            //      experssion{
+            //          env.GIT_BRANCH == 'master'|| CODE_CHANGES == true 
+            //      }
+            //  }
             steps{
                 echo "Maven Packaging"
                 sh 'mvn package'
