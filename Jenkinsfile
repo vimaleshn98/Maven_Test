@@ -47,6 +47,9 @@ pipeline{
                     echo "========Maven Packaging stage executed successfully========"
 
                 }
+                changed{
+                    echo "========Their is change in Packaging from pervious========"
+                }
                 failure{
                     echo "========Maven Packaging stage execution failed========"
                 }
