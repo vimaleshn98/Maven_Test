@@ -5,6 +5,9 @@ pipeline{
             args '-v /root/.m2:/root/.m2'
         }
     }
+    environment{
+        New_Version = '1.0.3'
+    }
     stages{
         stage("Build"){
             steps{
@@ -13,7 +16,7 @@ pipeline{
             }
             post{
                 success{
-                    echo "========Maven compile stage executed successfully========"
+                    echo "========Maven compile stage executed successfully ${New_Version}========"
                 }
                 failure{
                     echo "========Maven compile stage execution failed========"
@@ -28,7 +31,7 @@ pipeline{
             post{
                 success{
                     junit 'target/surefire-reports/**/*.xml'
-                    echo "========Maven Test stage executed successfully========"
+                    echo "========Maven Test stage executed successfully  ${New_Version}========"
 
                 }
                 failure{
@@ -37,6 +40,11 @@ pipeline{
             }
         }
          stage("Packaging"){
+             when{
+                 experssion{
+                     BRANCH_NAME == 'master'|| CODE_CHANGES == true 
+                 }
+             }
             steps{
                 echo "Maven Packaging"
                 sh 'mvn package'
@@ -44,7 +52,7 @@ pipeline{
             post{
                 success{
                     archiveArtifacts 'target/*.jar'
-                    echo "========Maven Packaging stage executed successfully========"
+                    echo "========Maven Packaging stage executed successfully  ${New_Version}========"
 
                 }
                 
