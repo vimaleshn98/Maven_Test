@@ -25,6 +25,7 @@ public class App {
 			switch (choice) {
 			case 1:
 				System.out.println("---------------  Create hotel data----------");
+				System.out.println("---------------  Create hotel data----------");
 				Hotel hotel= hotelservice.getHotelDetails();
 				try {
 					flag = hotelservice.addToDatabase(hotel);
