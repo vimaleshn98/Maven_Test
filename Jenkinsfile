@@ -42,7 +42,7 @@ pipeline{
          stage("Packaging"){
              when{
                  experssion{
-                     BRANCH_NAME == 'master'|| CODE_CHANGES == true 
+                     env.GIT_BRANCH == 'master'|| CODE_CHANGES == true 
                  }
              }
             steps{
