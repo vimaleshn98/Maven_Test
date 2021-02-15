@@ -15,7 +15,7 @@ public class App {
 	private static Scanner scanner = new Scanner(System.in);
 	private static HotelServices hotelservice = new HotelServicesImplm();
 
-	public static void main(String[] args) {
+	// public static void main(String[] args) {
 		int choice;
 		boolean flag;
 		do {
