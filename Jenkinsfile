@@ -56,6 +56,26 @@ pipeline{
                 }
             }
         }
+          stage("Deployee"){
+           when {
+                expression {
+                        currentBuild.result == null || currentBuild.result == 'SUCCESS' ①
+                }
+            }
+                steps {
+                    echo "========Deploying  ${New_Version}========"
+                    }
+            post{
+                success{
+                    echo "========Deploying executed successfully  ${New_Version}========"
+
+                }
+                
+                failure{
+                    echo "========Deploying stage execution failed========"
+                }
+            }
+        }
     }
     post{
         always{
