@@ -31,8 +31,6 @@ public class App {
 				try {
 					flag = hotelservice.addToDatabase(hotel);
 				} catch (HotelIdAlreareadyUsedService e1) {
-					// TODO Auto-generated catch block
-//					e1.printStackTrace();
 					System.out.println(e1.getMessage());
 				}
 				break;
