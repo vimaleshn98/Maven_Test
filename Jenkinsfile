@@ -25,7 +25,7 @@ pipeline{
         }
         stage("Test"){
             steps{
-                echo "Maven compiling"
+                echo "Maven Test"
                 sh 'mvn test'
             }
             post{
