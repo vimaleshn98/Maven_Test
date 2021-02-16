@@ -79,7 +79,7 @@ pipeline{
     }
     post{
         always{
-            echo "========always========"
+            echo "========Running ${env.BUILD_ID} on ${env.JENKINS_URL}========"
         }
         changed{
                     echo "========Their is change in Packaging from pervious========"
